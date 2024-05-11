@@ -1,0 +1,1 @@
+actors = Actor.all
