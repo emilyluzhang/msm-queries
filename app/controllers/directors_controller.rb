@@ -8,6 +8,8 @@ class DirectorsController < ApplicationController
     @matching_records = Director.where({:id => @dir_num})
     @the_director = @matching_records.at(0)
 
+    @movies = Movie.where({:director_id => @the_director.id})
+    
     render({ :template => "director_templates/details"}) 
   end 
 end 
