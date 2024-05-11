@@ -21,3 +21,25 @@
 <hr>
 
 <h2> Filmography </h2>
+<table border="1">
+  <tr>
+    <th>Title </th> 
+    <th>Year </th>
+    <th>Director </th>
+    <th>Character name </th>
+    <th> </th>    
+  </tr>
+
+<% @char.each do |a_movie|  %>
+<% match_movie = Movie.where({:id => a_movie.movie_id})[0]%>
+<% match_director = Director.where({:id => match_movie.director_id})[0]%>
+
+  <tr>
+    <td> <%= match_movie.title %> </td>
+    <td> <%= match_movie.year %> </td>
+    <td> <%= match_director.name %> </td>
+    <td> <%= a_movie.name %> </td>
+    <td> <a href="/movies/<%= a_movie.movie_id%>">Show details </a></td>
+  </tr>
+  <% end%>
+  </table>

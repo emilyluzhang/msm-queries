@@ -31,7 +31,9 @@
     <th>Director </th>
     <th> </th>    
   </tr>
-  <% @movies.each do |a_movie|  %>
+  <% movies = Movie.where({:director_id => @the_director.id})%>
+
+  <% movies.each do |a_movie|  %>
   <tr>
     <td> <%= a_movie.id %> </td>
     <td> <img src = "<%= a_movie.image %>" width="200"> </td>
